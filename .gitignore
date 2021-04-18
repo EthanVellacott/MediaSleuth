@@ -1,3 +1,7 @@
+# IDE
+.idea
+
+# System
 .DS_store
 
 # Byte-compiled / optimized / DLL files

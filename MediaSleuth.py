@@ -155,26 +155,14 @@ class MainWindow(wx.Frame):
             [wx.ID_PRINT,   "&Print into browser\tCtrl-P", self.dataview_print],
             [wx.ID_REFRESH, "&Refresh Selected\tCtrl-R",   self.dataview_refresh_selected],
             [wx.ID_ANY,     "Select &All\tCtrl-A",         self.dataview_selectall],
-            [wx.ID_CLEAR,   "Clear table",                 self.dataview_clear],
         ]
         for item in menuitems:
             build_action_menuitem(self, edit_menu, item[0], item[1], item[2])
         menubar.Append(edit_menu, "&Edit")
 
-        view_menu = wx.Menu()
-        menuitems = [
-            [wx.ID_ANY, "Views", None],
-        ]
-        for item in menuitems:
-            action = view_menu.Append(item[0], item[1])
-            self.Bind(wx.EVT_MENU, item[2], action)
-        menubar.Append(view_menu, "&View")
-
         help_menu = wx.Menu()
         menuitems = [
-            [wx.ID_ANY,   "Getting started",             None],
             [wx.ID_ANY,   "Flush temp files",            self.tempfiles_flush],
-            [wx.ID_ANY,   "About",                       None],
         ]
         for item in menuitems:
             build_action_menuitem(self, help_menu, item[0], item[1], item[2])
@@ -184,7 +172,6 @@ class MainWindow(wx.Frame):
 
         # SORT OUT WINDOW SIZING AND FIT
         # TODO rethink the window sizing
-
         self.SetMinSize((800, 400))
         self.Centre()
 
